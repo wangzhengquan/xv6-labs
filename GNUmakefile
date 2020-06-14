@@ -130,8 +130,9 @@ USER_CFLAGS := $(CFLAGS) -DJOS_USER -gstabs
 # force a rebuild of the rule that depends on it.
 $(OBJDIR)/.vars.%: FORCE
 	$(V)echo "$($*)" | cmp -s $@ || echo "$($*)" > $@
-	.PRECIOUS: $(OBJDIR)/.vars.%
-	.PHONY: FORCE
+
+.PRECIOUS: $(OBJDIR)/.vars.%
+.PHONY: FORCE
 
 
 # Include Makefrags for subdirectories
